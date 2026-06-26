@@ -1,4 +1,11 @@
 import os
+import logging
+# 配置日志
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
 # ---------- 数据源 API 地址 (公开) ----------
 POLYMARKET_BASE_URL = "https://gamma-api.polymarket.com"
 KALSHI_BASE_URL = "https://trading-api.kalshi.com/trade-api/v2"

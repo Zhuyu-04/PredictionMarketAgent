@@ -53,12 +53,28 @@ class LLMAgent:
             print(f"LLM 调用失败: {e}，降级为模拟")
             return self._fallback(market, signals)
     def _fallback(self, market, signals):
-        action = "HOLD" if signals else "BUY"
+        # 简单规则：根据信号和概率给出建议
+        action = "HOLD"
+        reason = "基于规则引擎判断"
+        # 查看是否有与本市场相关的信号
+        relevant = [s for s in signals if s.get("market_id") == market.id]
+        if any(s["type"] == "probability_low" for s in relevant):
+            action = "BUY"
+            reason = "概率极低，可能被低估"
+        elif any(s["type"] == "probability_high" for s in relevant):
+            action = "SELL"
+            reason = "概率极高，可能被高估"
+        elif market.probability < 0.3:
+            action = "BUY"
+            reason = "概率偏低，存在上行空间"
+        elif market.probability > 0.7:
+            action = "SELL"
+            reason = "概率偏高，可能回调"
         return {
             "market": market.title,
             "action": action,
             "confidence": 0.65,
-            "reasoning": "基于模拟数据分析（无 LLM）",
+            "reasoning": reason,
             "risk_factors": [],
             "time_horizon": "short"
         }

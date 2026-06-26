@@ -57,6 +57,21 @@ liquidity	float	流动性
 spread	float	买卖价差
 category	str	分类标签
 url	str	市场链接
+## 🏗️ 系统架构
+[数据源] Polymarket API ──┐
+├──> DataPipeline (异步) ──> StandardMarket[]
+[数据源] Kalshi API ──────┘
+│
+▼
+MarketFilter (筛选)
+ProbabilityTracker (追踪)
+SignalDetector (异常)
+│
+▼
+LLMAgent / RuleAgent (判断)
+│
+▼
+输出: 交易建议 + 置信度
 📂 项目结构
 Text
 PredictionMarketAgent/

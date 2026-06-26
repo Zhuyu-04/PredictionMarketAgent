@@ -1,3 +1,4 @@
+from prediction_market_agent.config import logger
 import aiohttp
 from .base import BaseDataSource, StandardMarket
 from prediction_market_agent.config import POLYMARKET_BASE_URL
