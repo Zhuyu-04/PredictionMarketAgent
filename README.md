@@ -11,10 +11,10 @@
 - 🔍 **三层分析框架** — 标的筛选 → 概率追踪 → 异常信号识别  
 - 🤖 **LLM Agent 层** — 结构化 Prompt + JSON 输出（可接入 OpenAI）  
 - ⚙️ **双模式运行** — LLM 推理模式 + 内置规则引擎模式  
-- 📈 **跨平台套利检测** — 自动发现 Polmarkt / Kalshi 概率价差  
+- 📈 **跨平台套利检测** — 自动发现 Polymarket / Kalshi 概率价差  
 - 🛡️ **容错设计** — API 不可用时自动降级为模拟数据  
 ## 🚀 快速开始
 ### 1. 克隆仓库
 ```bash
-git clone https://github.com/你的用户名/PredictionMarketAgent.git
+git clone https://github.com/Zhuyu-04/PredictionMarketAgent.git
 cd PredictionMarketAgent
