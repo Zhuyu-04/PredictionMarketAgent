@@ -1,0 +1,20 @@
+{
+  "timestamp": "2024-12-20T15:30:00Z",
+  "total_markets_scanned": 652,
+  "filtered_markets": 47,
+  "signals": [
+    {
+      "market_id": "pm-fed-rate-cut-dec-2024",
+      "type": "probability_crash",
+      "details": "概率1小时下降12.3%"
+    }
+  ],
+  "agent_recommendations": [
+    {
+      "market": "Fed Rate Cut in Dec 2024",
+      "action": "BUY",
+      "confidence": 0.78,
+      "reasoning": "概率骤降可能过度反应"
+    }
+  ]
+}
